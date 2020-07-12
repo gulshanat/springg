@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+</head>
+<body bgcolor="#00FFFF">
+<div th:if="${user} == null">
+    <a href="/registration">Регистрация</a><br/>
+    <a href="/login">авторизация</a>
+</div>
+<!-- ELSE -->
+<div th:if="${user} != null">
+<span th:utext="'Hello, ' + ${user}"></span>
+
+    <form th:action="@{/logout}" method="get">
+        <button class="btn btn-md btn-danger btn-block" name="registration"
+                type="Submit">Logout</button>
+    </form>
+</div>
+<br/>
+
+
+
+</body>
+</html>
